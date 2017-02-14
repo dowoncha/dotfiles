@@ -1,8 +1,8 @@
 # Global Config
 [user]
     name = "Dowon Cha"
-    email = "dowoncha@live.unc.edu"
-    signingkey = **Your GPG ID**
+    email = "dowon1014@gmail.com"
+    # signingkey = **Your GPG ID**
 
 [branch "master"]
     remote = origin
