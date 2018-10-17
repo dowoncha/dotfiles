@@ -40,4 +40,5 @@ fi
 # xterm -geometry 80x50+494+51 &
 # xterm -geometry 80x20+494-0 &
 # exec xterm -geometry 80x66+0+0 -name login
+~/.fehbg &                                          # Background image
 exec i3 --shmlog-size=26214000 # 2> /var/log/i3.log
