@@ -21,12 +21,24 @@ font pango:DejaVu Sans Mono 8
 # X core fonts rendering does not support right-to-left and this being a bitmap
 # font, it doesn't scale on retina/hidpi displays.
 
+##################################################################
+# i3 gaps configuration
+##################################################################
+
+# Disable window titlebars for i3 gaps
+for_window [class="^.*"] border pixel 0
+
+# gaps inner all set 20
+
 # use these keys for focus, movement, and resize directions when reaching for
 # the arrows is not convenient
 set $up l
 set $down k
 set $left j
 set $right semicolon
+
+# Set windows key as Mod key
+# set $sup Mod1
 
 # use Mouse+Mod1 to drag floating windows to their wanted position
 floating_modifier Mod1
