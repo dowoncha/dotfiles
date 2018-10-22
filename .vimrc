@@ -74,5 +74,7 @@ set nocompatible		" Vim compatibility
 set noerrorbells visualbell t_vb=
 autocmd GUIEnter * set visualbell t_vb=
 
+hi Normal guibg=NONE ctermbg=NONE
+
 " Custom key bindings
 map <A-w> :NERDTreeToggle<CR>

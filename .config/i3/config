@@ -28,6 +28,12 @@ font pango:DejaVu Sans Mono 8
 # Disable window titlebars for i3 gaps
 for_window [class="^.*"] border pixel 0
 
+gaps inner 10
+gaps outer 15
+
+smart_gaps on
+smart_borders on
+
 # gaps inner all set 20
 
 # use these keys for focus, movement, and resize directions when reaching for
@@ -201,7 +207,7 @@ bindsym XF86AudioMute exec amixer -q set Master mute
 # finds out, if available)
 bar {
         position top 
-        status_command i3blocks
+        status_command i3status
 }
 
 #######################################################################
