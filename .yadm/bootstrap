@@ -1,0 +1,58 @@
+#!/bin/bash
+
+system_type=$(uname -s)
+
+# -f file
+if [ -f "/etc/arch-release" ]; then
+  echo "Distro Arch Linux"
+
+  setup_arch_linux
+fi
+
+setup_arch_linux() {
+
+  # Install basics
+  pacman -S git
+
+  setup_shell
+
+  setup_editor
+
+  setup_desktop
+
+  setup_tools
+}
+
+setup_shell() {
+  pacman -S zsh
+
+  curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh | zsh
+
+}
+
+setup_editor() {
+  pacman -S vim
+
+  vim +PluginInstall +qall
+
+}
+
+setup_desktop() {
+  # Install Xorg
+  pacman -S xorg xorg-xinit
+
+  # Install i3
+  pacman -S i3-gaps i3status i3lock i3blocks dmenu
+}
+
+setup_editor() {
+  pacman -S vim
+}
+
+setup_tools() {
+  # ranger - file manager
+  # nmtui - network manager
+  # firefox
+  pacman -S ranger nmtui firefox
+
+}
