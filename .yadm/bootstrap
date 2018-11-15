@@ -21,6 +21,14 @@ setup_arch_linux() {
   setup_desktop
 
   setup_tools
+
+  echo "Bootstrap completed successfully"
+  echo -n "You must relog to finalize all changes. Relog now? (y/n)"
+  read answer
+
+  if [ "$answer" =!= "${answer#[Yy]}" ]; then
+    logout
+  fi
 }
 
 setup_shell() {
@@ -43,6 +51,10 @@ setup_desktop() {
 
   # Install i3
   pacman -S i3-gaps i3status i3lock i3blocks dmenu
+
+  # Install background
+  pacman -S feh
+  mkdir ~/photos
 }
 
 setup_editor() {
@@ -52,7 +64,24 @@ setup_editor() {
 setup_tools() {
   # ranger - file manager
   # nmtui - network manager
+  # feh - image/background manager
   # firefox
-  pacman -S ranger nmtui firefox
+  # process manager
+  # docker - container service
+  pacman -S ranger nmtui firefox htop docker
 
+  # Requires Root
+  # Startup services?
+  # systemctl start docker.service
 }
+
+create_groups() {
+  # Change docker unix socket ownership
+  # Create docker group, add the current user to the group
+  groupadd docker
+  usermod -aG docker $USER
+
+  chown "$USER":"$USER" /home/"USER"/.docker/config.json
+  chmod g+rwx "$HOME/.docker" -R
+}
+
